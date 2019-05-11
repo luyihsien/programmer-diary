@@ -1,0 +1,3 @@
+Username:google3267640_student@qwiklabs.net
+Password:6tRjFmKM57C3
+GCP Project ID:qwiklabs-gcp-76c16d0e54423002
