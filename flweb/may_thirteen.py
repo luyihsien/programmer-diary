@@ -12,10 +12,12 @@ import testss
 #WHY不circular import #pt2#猜測:本來我import裡面無論什麼東西都會先執行__init__py故此另外處理
 #from testss import ftgirls
 #from testss import ftboy
+#==from testss import ftgirls,ftboy
 #結果
-#abcdefg#好像在__init__py的只執行一次的樣子
+#abcdefg#好像在__init__py的只執行一次的樣子#猜測testss被import進來後就在裡面取了#也是，不然一直import就要重複先出去忘了原本package再進來可能造成memory實際負擔以及非programmer意思#ex:我就只是要abc..一次你給我那麼多次衝三小
 #girls
 #boys
 #from testss import ftgirls
 #abcdefg
 #girls
+
