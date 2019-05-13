@@ -4,3 +4,4 @@
 #ftboy不像__init__.py會執行 除非from testss import ftboy
 #from testss.ftboy import girls才可以引入其func
 # 若為 from testss import girls則error
+from testss import ftboy
