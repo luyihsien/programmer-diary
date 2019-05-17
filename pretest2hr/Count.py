@@ -1,14 +1,21 @@
+from os import *
 def counting(urls):
     dict = {}
     for i in range(len(urls)):
+        urls[i]=urls[i].split('/',-1)[-1]
+
+    return urls
+
+'''    
+    for i in urls:
         #dict={}
-        if urls[i] in dict:
-            dict[urls[i]]=dict[urls[i]]+1
+        if i in dict:
+            dict[i]=dict[i]+1
         else:
-            dict[urls[i]]=1
+            dict[i]=1
     return dict
 
-
+'''
 if __name__ == '__main__':
 
     urls = [
