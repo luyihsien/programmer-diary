@@ -12,15 +12,17 @@ def counting(urls):
             dict[i]=dict[i]+1
         else:
             dict[i]=1
-    #此時dict={'a.txt': 3, 'c.jpg': 2, 'b.txt': 2, 'haha.png': 1}
-    b=[]
-    for i in range(3):
-        a=max(dict,key=dict.get)
-        b.append(a+' '+str(dict[a]))
-        dict.pop(a)
-    b.sort()
-    for i in b:
-        print(i)
+        def sortedDictValues3(dict):
+                print(dict)
+
+
+
+        return sortedDictValues3(dict)#{'a.txt': 1}
+
+            #此時dict={'a.txt': 3, 'c.jpg': 2, 'b.txt': 2, 'haha.png': 1}
+
+
+
 if __name__ == '__main__':
     urls = [
         "http://www.google.com/a.txt",
@@ -33,7 +35,7 @@ if __name__ == '__main__':
         "http://gliacloud.com/haha.png",
     ]
 
-counting(urls)
+print(counting(urls))
 '''
 def sortedDictValues3(adict): 
 keys = adict.keys() 
