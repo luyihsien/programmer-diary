@@ -1,10 +1,11 @@
+'''
 def calculate(n):
     a=list(range(1,n+1))
     print(a)
     i=0
     while a[i]!=n:
         if a[i]%3==0 or a[i]%5==0:
-            print(str(a[i])+'是3or5倍數')
+            #print(str(a[i])+'是3or5倍數')
             a.remove(a[i])
             print(a)
         if a[i]%15==0:
@@ -16,6 +17,8 @@ def calculate(n):
     print(a)
     return len(a)
 calculate(15)
+'''
+
 '''
 def calculate(n):
     a=(range(1,n+1))
@@ -29,3 +32,15 @@ def calculate(n):
     return len(l)
 print(calculate(15))
 '''
+def cal(n):
+    l=[]
+    for i in range(1,n+1):
+        if i%3!=0 and i%5!=0:
+            l.append(i)
+        elif i%15==0:
+            l.append(i)
+    print(l)
+
+cal(15)
+
+
