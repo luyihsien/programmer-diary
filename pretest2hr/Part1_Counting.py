@@ -13,10 +13,19 @@ def counting(urls):
         else:
             dict[i]=1
     print(dict)##此時dict={'a.txt': 3, 'c.jpg': 2, 'b.txt': 2, 'haha.png': 1}
-    return sortedDictValue()#{'a.txt': 1}#NameError: name 'sortedDictValues3' is not defined
-def sortedDictValue():
-    print(dict)#<class 'dict'>#似乎前值沒一起進去
 
+    def sortedDictValue():
+        keys=dict.keys()
+        keys.sort()#AttributeError: 'dict_keys' object has no attribute 'sort'
+        return map(dict.get,keys)
+
+    return sortedDictValue()#{'a.txt': 1}#NameError: name 'sortedDictValues3' is not defined
+'''
+def sortedDictValues3(adict): 
+keys = adict.keys() 
+keys.sort() 
+return map(adict.get, keys) 
+'''
 
 
 
