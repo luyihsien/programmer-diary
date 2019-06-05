@@ -34,3 +34,9 @@ if __name__ == '__main__':
     ]
 
 counting(urls)
+'''
+def sortedDictValues3(adict): 
+keys = adict.keys() 
+keys.sort() 
+return map(adict.get, keys) 
+'''
