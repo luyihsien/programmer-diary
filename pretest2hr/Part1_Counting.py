@@ -15,9 +15,15 @@ def counting(urls):
     print(dict)##此時dict={'a.txt': 3, 'c.jpg': 2, 'b.txt': 2, 'haha.png': 1}
 
     def sortedDictValue():
+        d={}
         keys=dict.keys()
-        keys.sort()#AttributeError: 'dict_keys' object has no attribute 'sort'
-        return map(dict.get,keys)
+        #keys.sort()#AttributeError: 'dict_keys' object has no attribute 'sort'
+        keys=list(keys)
+        keys.sort()
+        for k in keys:
+            d[k]=dict[k]
+        return d
+
 
     return sortedDictValue()#{'a.txt': 1}#NameError: name 'sortedDictValues3' is not defined
 '''
