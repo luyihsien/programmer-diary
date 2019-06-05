@@ -12,12 +12,9 @@ def counting(urls):
             dict[i]=dict[i]+1
         else:
             dict[i]=1
-        def sortedDictValues3(dict):
-                print(dict)
-
-
-
-        return sortedDictValues3(dict)#{'a.txt': 1}
+        return sortedDictValues3(dict)#{'a.txt': 1}#NameError: name 'sortedDictValues3' is not defined
+def sortedDictValue(dict):
+    print(dict)
 
             #此時dict={'a.txt': 3, 'c.jpg': 2, 'b.txt': 2, 'haha.png': 1}
 
