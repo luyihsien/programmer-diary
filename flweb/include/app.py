@@ -67,16 +67,13 @@ def test():
     data=request.get_json()
     print(data)
     return render_template('test.html',data=data)
-@app.route('/sendjson', methods=['GET','POST'])
-def sendjson():
-    data = json.loads(request.form.get('data'))
-    lesson = data["lesson"]
-    score = data["score"]
-    info = dict()
-    info['name'] = "pengshuang"
-    info['lesson'] = lesson
-    info['score'] = score
-    print(info)
-    return render_template('sendjson.html',info=jsonify(info))
+@app.route('/sendjson2',methods=['GET','POST'])
+def sendjson2():
+    data = json.loads(request.get_data())
+    name = data["name"]
+    age = data["age"]
+    location = data["location"]
+    data["time"] = "2016"
+    return jsonify(data)
 if __name__ == '__main__':
     app.run()
