@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index():
     return '<h1>Hello, World!</h1>'
 
-@app.route('/hom', methods=['POST', 'GET'], defaults={'name' : 'Default'})#改成hom 然後url輸入hom也行
+@app.route('/h', methods=['POST', 'GET'], defaults={'name' : 'Default'})#改成hom 然後url輸入hom也行
 @app.route('/home/<string:name>', methods=['POST', 'GET'])
 def home(name):
     return '<h1>Hello {}, you are on the home page!</h1>'.format(name)

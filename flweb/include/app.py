@@ -1,79 +1,22 @@
-from flask import Flask, jsonify, request, url_for, redirect, session, render_template
 import json
-
+from flask import Flask
+from flask import request
+from flask import redirect
+from flask import jsonify
 app = Flask(__name__)
 
-app.config['DEBUG'] = True
-app.config['SECRET_KEY'] = 'Thisisasecret!'
-
-@app.route('/')
+@app.route('/' , methods=['GET', 'POST'])
 def index():
-    session.pop('name', None)
-    return '<h1>Hello, World!</h1>'
-
-@app.route('/home', methods=['POST', 'GET'], defaults={'name' : 'Default'})
-@app.route('/home/<string:name>', methods=['POST', 'GET'])
-def home(name):
-    session['name'] = name
-    return render_template('home.html', name=name, display=False, mylist=['one', 'two', 'three', 'four'], listofdictionaries=[{'name' : 'Zach'}, {'name' : 'Zoe'}])
-
-@app.route('/json')
-def json():
-    if 'name' in session:
-        name = session['name']
+    if request.method == 'POST':
+        a = request.get_data()
+        dict1 = json.loads(a)
+        return json.dumps(dict1["data"])
     else:
-        name = 'NotinSession!'
-    return jsonify({'key' : 'value', 'listkey' : [1,2,3], 'name' : name})
+        return '<h1>只接受post请求！</h1>'
 
-@app.route('/query')
-def query():
-    name = request.args.get('name')
-    location = request.args.get('location')
-    return '<h1>Hi {}. You are from {}. You are on the query page!</h1>'.format(name, location)
+@app.route('/user/<name>')
+def user(name):
+    return'<h1>hello, %s</h1>' % name
 
-@app.route('/theform', methods=['GET', 'POST'])
-def theform():
-
-    if request.method == 'GET':
-        return render_template('form.html')
-    else:
-        name = request.form['name']
-        location = request.form['location']
-
-        #return '<h1>Hello {}. You are from {}. You have submitted the form successfully!<h1>'.format(name, location)
-        return redirect(url_for('home', name=name, location=location))
-
-'''
-@app.route('/process', methods=['POST'])
-def process():
-    name = request.form['name']
-    location = request.form['location']
-
-    return '<h1>Hello {}. You are from {}. You have submitted the form successfully!<h1>'.format(name, location)
-'''
-@app.route('/processjson', methods=['POST'])
-def processjson():
-
-    data = request.get_json()
-
-    name = data['name']
-    location = data['location']
-
-    randomlist = data['randomlist']
-
-    return jsonify({'result' : 'Success!', 'name' : name, 'location' : location, 'randomkeyinlist' : randomlist[1]})
-@app.route('/test',methods=['GET','POST'])
-def test():
-    data=request.get_json()
-    print(data)
-    return render_template('test.html',data=data)
-@app.route('/sendjson2',methods=['GET','POST'])
-def sendjson2():
-    data = json.loads(request.get_data())
-    name = data["name"]
-    age = data["age"]
-    location = data["location"]
-    data["time"] = "2016"
-    return jsonify(data)
-if __name__ == '__main__':
-    app.run()
+if __name__ =='__main__':
+    app.run(debug=True)

@@ -8,9 +8,9 @@
     <title>Food Tracker | Home</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='theme.css') }}" rel="stylesheet">
+    <link href="theme.css" rel="stylesheet">
 
   </head>
 
@@ -37,7 +37,7 @@
           <form method="POST" action="/">
             <div class="form-group">
               <label for="new-day">New Day</label>
-              <input type="date" class="form-control" name="date" id="new-day">
+              <input type="date" class="form-control" id="new-day">
             </div>
 
             <button type="submit" class="btn btn-primary">Add</button>
